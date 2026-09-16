@@ -16,16 +16,17 @@
   <meta property="og:url" content="https://rashibalan7-ship-it.github.io/creations-events/">
   <meta property="og:title" content="Creations — We create moments worth remembering.">
   <meta property="og:description" content="Modern editorial luxury event planning across India. Royal weddings, private celebrations, and corporate galas.">
-  <meta property="og:image" content="https://rashibalan7-ship-it.github.io/creations-events/assets/royal-heritage-mandap.jpg">
+  <meta property="og:image" content="https://rashibalan7-ship-it.github.io/creations-events/assets/creations-logo.jpg">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Creations | Luxury Indian Celebrations Across India">
   <meta name="twitter:description" content="From intimate celebrations to grand productions. Modern, warm, and sophisticated event experiences.">
-  <meta name="twitter:image" content="https://rashibalan7-ship-it.github.io/creations-events/assets/royal-heritage-mandap.jpg">
+  <meta name="twitter:image" content="https://rashibalan7-ship-it.github.io/creations-events/assets/creations-logo.jpg">
 
-  <!-- Favicon SVG -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif' fill='%23B86F5B'>C</text></svg>">
+  <!-- Favicon & Apple Touch Icon (Creations Emblem) -->
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
 
   <!-- Performance Preconnects & Image Preloads -->
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
@@ -33,6 +34,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=85" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/creations-logo-gold.png">
+  <link rel="preload" as="image" href="assets/creations-logo-transparent.png">
 
   <!-- Google Fonts: Cormorant Garamond (Editorial Serif) & Manrope (UI Sans) -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -109,6 +112,8 @@
     "@context": "https://schema.org",
     "@type": "EventPlanningService",
     "name": "Creations",
+    "image": "https://rashibalan7-ship-it.github.io/creations-events/assets/creations-logo.jpg",
+    "logo": "https://rashibalan7-ship-it.github.io/creations-events/assets/creations-logo.jpg",
     "description": "Pan-India luxury event planning, design, and production for royal weddings, corporate galas, and private celebrations.",
     "url": "https://rashibalan7-ship-it.github.io/creations-events/",
     "areaServed": "India",
@@ -196,14 +201,22 @@
   <header id="main-nav" class="fixed top-0 left-0 w-full z-40 transition-all duration-300 border-b border-transparent text-ivory bg-transparent">
     <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 h-20 sm:h-24 flex items-center justify-between">
       
-      <!-- Brand Logo / Wordmark -->
-      <a href="#hero" class="flex flex-col group py-2" aria-label="Creations Home">
-        <span class="font-serif text-2xl sm:text-3xl font-light tracking-[0.2em] uppercase transition-colors group-hover:text-terracotta">
-          Creations
-        </span>
-        <span class="text-[9px] tracking-widest-plus uppercase opacity-80 font-medium -mt-1">
-          Pan-India • Event Architects
-        </span>
+      <!-- Brand Logo / Wordmark + Logo Emblem -->
+      <a href="#hero" class="flex items-center gap-3.5 group py-2" aria-label="Creations Home">
+        <div class="relative w-10 h-10 sm:w-11 sm:h-11 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+          <!-- Gold version when transparent over dark hero -->
+          <img id="nav-logo-gold" src="assets/creations-logo-gold.png" alt="Creations Logo Emblem" class="w-full h-full object-contain">
+          <!-- Bronze/transparent version when scrolled over light ivory -->
+          <img id="nav-logo-dark" src="assets/creations-logo-transparent.png" alt="Creations Logo Emblem" class="w-full h-full object-contain hidden">
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif text-2xl sm:text-3xl font-light tracking-[0.2em] uppercase transition-colors group-hover:text-terracotta">
+            Creations
+          </span>
+          <span class="text-[9px] tracking-widest-plus uppercase opacity-80 font-medium -mt-1">
+            Pan-India • Event Architects
+          </span>
+        </div>
       </a>
 
       <!-- Desktop Navigation Links -->
@@ -235,10 +248,21 @@
   </header>
 
   <!-- Mobile Drawer Menu -->
-  <div id="mobile-drawer" class="fixed inset-0 z-30 bg-ivory text-charcoal transform translate-x-full transition-transform duration-500 ease-in-out lg:hidden flex flex-col justify-between pt-28 px-8 pb-10 overflow-y-auto" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+  <div id="mobile-drawer" class="fixed inset-0 z-30 bg-ivory text-charcoal transform translate-x-full transition-transform duration-500 ease-in-out lg:hidden flex flex-col justify-between pt-24 px-8 pb-10 overflow-y-auto" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
     <div class="flex flex-col space-y-6">
-      <p class="text-[10px] tracking-widest-plus uppercase text-warm-gray font-semibold border-b border-warm-gray-border pb-2">Navigation</p>
-      <nav class="flex flex-col space-y-5 text-2xl font-serif text-charcoal">
+      
+      <!-- Mobile Drawer Brand Header -->
+      <div class="flex items-center gap-3.5 pb-4 border-b border-warm-gray-border/60">
+        <img src="assets/creations-logo-transparent.png" alt="Creations Emblem" class="w-11 h-11 object-contain">
+        <div class="flex flex-col">
+          <span class="font-serif text-2xl font-light tracking-[0.2em] uppercase text-charcoal">Creations</span>
+          <span class="text-[9px] tracking-widest-plus uppercase text-warm-gray font-medium -mt-1">Pan-India • Event Architects</span>
+        </div>
+      </div>
+
+      <p class="text-[10px] tracking-widest-plus uppercase text-warm-gray font-semibold">Navigation</p>
+      
+      <nav class="flex flex-col space-y-4 text-xl font-serif text-charcoal">
         <a href="#hero" class="mobile-nav-link hover:text-terracotta transition-colors">Home</a>
         <a href="#about" class="mobile-nav-link hover:text-terracotta transition-colors">About</a>
         <a href="#services" class="mobile-nav-link hover:text-terracotta transition-colors">Services</a>
@@ -251,14 +275,14 @@
       </nav>
     </div>
 
-    <div class="pt-8 border-t border-warm-gray-border flex flex-col space-y-4">
-      <button type="button" onclick="closeMobileMenu(); openEnquiryModal('Mobile Menu');" class="w-full py-4 text-center text-xs uppercase tracking-editorial font-medium bg-charcoal text-ivory hover:bg-terracotta transition-colors">
+    <div class="pt-6 border-t border-warm-gray-border flex flex-col space-y-4">
+      <button type="button" onclick="closeMobileMenu(); openEnquiryModal('Mobile Menu');" class="w-full py-3.5 text-center text-xs uppercase tracking-editorial font-medium bg-charcoal text-ivory hover:bg-terracotta transition-colors shadow-subtle">
         Plan My Event
       </button>
-      <div class="flex items-center justify-between text-xs text-warm-gray pt-2">
+      <div class="flex items-center justify-between text-xs text-warm-gray pt-1">
         <a href="https://wa.me/919876543210?text=Hello%20Creations%20Team,%20I%20would%20like%20to%20plan%20an%20event." target="_blank" rel="noopener" class="flex items-center space-x-2 hover:text-terracotta">
           <i data-lucide="message-circle" class="w-4 h-4"></i>
-          <span>WhatsApp Enquiries</span>
+          <span>WhatsApp</span>
         </a>
         <a href="tel:+919876543210" class="hover:text-terracotta">+91 98765 43210</a>
       </div>
@@ -288,6 +312,11 @@
       <!-- Hero Content Container -->
       <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center">
         
+        <!-- Brand Crest Emblem -->
+        <div class="mb-5 reveal-on-scroll">
+          <img src="assets/creations-logo-gold.png" alt="Creations Royal Crest" class="w-16 h-16 sm:w-20 sm:h-20 object-contain mx-auto drop-shadow-[0_4px_24px_rgba(216,197,165,0.35)]">
+        </div>
+
         <!-- Eyebrow -->
         <div class="inline-flex items-center space-x-3 mb-6 reveal-on-scroll">
           <span class="w-8 h-px bg-champagne"></span>
@@ -347,9 +376,12 @@
           
           <!-- Text Narrative Column -->
           <div class="lg:col-span-6 reveal-on-scroll">
-            <span class="text-xs font-semibold tracking-widest-plus uppercase text-terracotta mb-4 block">
-              WELCOME TO CREATIONS
-            </span>
+            <div class="flex items-center gap-3.5 mb-4">
+              <img src="assets/creations-logo-transparent.png" alt="Creations Hallmark" class="w-9 h-9 object-contain flex-shrink-0">
+              <span class="text-xs font-semibold tracking-widest-plus uppercase text-terracotta block">
+                WELCOME TO CREATIONS
+              </span>
+            </div>
             <h2 class="section-headline font-serif text-charcoal mb-6">
               Your vision.<br>
               <span class="italic font-light">Our creation.</span>
@@ -672,9 +704,12 @@
           
           <!-- Editorial Narrative -->
           <div class="lg:col-span-7 reveal-on-scroll">
-            <span class="text-xs font-semibold tracking-widest-plus uppercase text-terracotta mb-4 block">
-              THE CREATIONS DIFFERENCE
-            </span>
+            <div class="flex items-center gap-3.5 mb-4">
+              <img src="assets/creations-logo-transparent.png" alt="Creations Hallmark" class="w-9 h-9 object-contain flex-shrink-0">
+              <span class="text-xs font-semibold tracking-widest-plus uppercase text-terracotta block">
+                THE CREATIONS DIFFERENCE
+              </span>
+            </div>
             <h2 class="section-headline font-serif text-charcoal mb-10">
               Behind every unforgettable event<br>
               <span class="italic font-light">is a thousand details.</span>
@@ -1043,9 +1078,14 @@
 
       <div class="relative z-10 max-w-5xl mx-auto">
         <div class="max-w-2xl reveal-on-scroll">
-          <span class="inline-block px-3.5 py-1.5 border border-champagne/40 text-champagne text-[10px] uppercase tracking-widest-plus font-semibold mb-6">
-            PAN-INDIA EVENT MANAGEMENT
-          </span>
+          
+          <div class="flex items-center gap-3.5 mb-6">
+            <img src="assets/creations-logo-gold.png" alt="Creations Emblem" class="w-9 h-9 object-contain flex-shrink-0">
+            <span class="inline-block px-3.5 py-1.5 border border-champagne/40 text-champagne text-[10px] uppercase tracking-widest-plus font-semibold">
+              PAN-INDIA EVENT MANAGEMENT
+            </span>
+          </div>
+
           <h2 class="section-headline font-serif text-ivory mb-6 leading-tight">
             Wherever your celebration takes you.
           </h2>
@@ -1088,6 +1128,9 @@
 
       <div class="relative z-10 max-w-3xl mx-auto flex flex-col items-center reveal-on-scroll">
         
+        <!-- Royal Crest Hallmark -->
+        <img src="assets/creations-logo-gold.png" alt="Creations Royal Crest" class="w-16 h-16 sm:w-20 sm:h-20 object-contain mb-5 drop-shadow-[0_4px_24px_rgba(216,197,165,0.35)]">
+
         <span class="text-xs font-semibold tracking-widest-plus uppercase text-champagne mb-4 block">
           BEGIN YOUR CREATION
         </span>
@@ -1127,15 +1170,20 @@
       
       <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-ivory/10">
         
-        <!-- Brand Info -->
+        <!-- Brand Info with Logo Emblem -->
         <div class="md:col-span-5 flex flex-col justify-between">
           <div>
-            <span class="font-serif text-3xl tracking-[0.2em] uppercase text-ivory block mb-3">
-              CREATIONS
-            </span>
-            <p class="text-xs tracking-widest-plus uppercase text-champagne font-medium mb-4">
-              Creating experiences. Crafting memories.
-            </p>
+            <div class="flex items-center gap-4 mb-4">
+              <img src="assets/creations-logo-gold.png" alt="Creations Royal Crest" class="w-14 h-14 object-contain flex-shrink-0">
+              <div class="flex flex-col">
+                <span class="font-serif text-3xl tracking-[0.2em] uppercase text-ivory block leading-tight">
+                  CREATIONS
+                </span>
+                <p class="text-[10px] tracking-widest-plus uppercase text-champagne font-medium">
+                  Creating experiences. Crafting memories.
+                </p>
+              </div>
+            </div>
             <p class="text-sm text-ivory/70 max-w-sm leading-relaxed">
               Premium event management, visual direction, and production for clients across India.
             </p>
@@ -1214,13 +1262,18 @@
         <i data-lucide="x" class="w-6 h-6"></i>
       </button>
 
-      <!-- Modal Header -->
-      <span class="text-[10px] font-semibold tracking-widest-plus uppercase text-terracotta mb-2 block">
-        START PLANNING
-      </span>
-      <h3 id="enquiry-modal-title" class="font-serif text-3xl sm:text-4xl text-charcoal mb-2">
-        Let's create your moment.
-      </h3>
+      <!-- Modal Header with Logo Emblem -->
+      <div class="flex items-center gap-3.5 mb-5">
+        <img src="assets/creations-logo-transparent.png" alt="Creations Emblem" class="w-12 h-12 object-contain flex-shrink-0">
+        <div>
+          <span class="text-[10px] font-semibold tracking-widest-plus uppercase text-terracotta block">
+            START PLANNING
+          </span>
+          <h3 id="enquiry-modal-title" class="font-serif text-2xl sm:text-3xl text-charcoal">
+            Let's create your moment.
+          </h3>
+        </div>
+      </div>
       <p class="text-xs sm:text-sm text-warm-gray mb-6">
         Share your vision with our planning team. We'll connect with you within 24 hours.
       </p>
@@ -1308,7 +1361,10 @@
         <img id="story-modal-img" src="" alt="" class="w-full h-full object-cover">
       </div>
       <div class="p-6 sm:p-8">
-        <span id="story-modal-tag" class="text-xs tracking-widest-plus uppercase text-terracotta font-semibold block mb-2"></span>
+        <div class="flex items-center gap-2 mb-2">
+          <img src="assets/creations-logo-transparent.png" alt="Creations" class="w-5 h-5 object-contain">
+          <span id="story-modal-tag" class="text-xs tracking-widest-plus uppercase text-terracotta font-semibold block"></span>
+        </div>
         <h3 id="story-modal-title" class="font-serif text-2xl sm:text-3xl text-charcoal mb-3"></h3>
         <p id="story-modal-desc" class="text-sm text-warm-gray leading-relaxed mb-6"></p>
         <div class="flex items-center justify-between pt-4 border-t border-warm-gray-border/40">
@@ -1332,15 +1388,26 @@
     // Initialize Lucide Icons
     lucide.createIcons();
 
-    // Scroll Navbar Transition
+    // Scroll Navbar Transition & Adaptive Logo Toggle
     const mainNav = document.getElementById('main-nav');
+    const navLogoGold = document.getElementById('nav-logo-gold');
+    const navLogoDark = document.getElementById('nav-logo-dark');
+
     window.addEventListener('scroll', () => {
       if (window.scrollY > 60) {
         mainNav.classList.remove('text-ivory', 'bg-transparent', 'border-transparent');
         mainNav.classList.add('text-charcoal', 'bg-ivory/95', 'backdrop-blur-md', 'border-warm-gray-border/50', 'shadow-subtle');
+        if (navLogoGold && navLogoDark) {
+          navLogoGold.classList.add('hidden');
+          navLogoDark.classList.remove('hidden');
+        }
       } else {
         mainNav.classList.add('text-ivory', 'bg-transparent', 'border-transparent');
         mainNav.classList.remove('text-charcoal', 'bg-ivory/95', 'backdrop-blur-md', 'border-warm-gray-border/50', 'shadow-subtle');
+        if (navLogoGold && navLogoDark) {
+          navLogoGold.classList.remove('hidden');
+          navLogoDark.classList.add('hidden');
+        }
       }
     }, { passive: true });
 
